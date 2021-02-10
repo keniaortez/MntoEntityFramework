@@ -1,13 +1,13 @@
 ﻿@model ClientesEntityFrmwk.Models.ListaClientes
-<center>
+
     @{
         ViewBag.Title = "Detalle de cliente";
     }
-
+<center>
     <h2>Detalle Cliente</h2>
 
     <table class="table">
-        @foreach (var item in Model.clie )
+        @foreach (var item in Model.clie)
         {
             <tr>
                 <td>ID Empleado:</td>
@@ -38,11 +38,21 @@
                 <td>@Html.DisplayFor(m => item._FechaModificacion)</td>
             </tr>
             <tr>
-
                 <td>
                     @*"Controlador"*@
-                    @Html.ActionLink("Modificar", "ModificarClientes", new { IdCliente = item._IdCliente })
-                    @Html.ActionLink("Eliminar", "EliminarCliente", new { IdCliente = item._IdCliente })
+                    <b>
+                        @Html.ActionLink("Modificar", "ModificarClientes", new { IdCliente = item._IdCliente })
+                    </b>
+                </td>
+                <td>
+                    <b>
+                        @Html.ActionLink("Eliminar", "EliminarCliente", new { IdCliente = item._IdCliente })
+                    </b>
+                </td>
+                <td>
+                    <b>
+                        @Html.ActionLink("Regresar", "Index")
+                    </b>
                 </td>
             </tr>
         }

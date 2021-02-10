@@ -31,8 +31,7 @@ namespace ClientesEntityFrmwk.Models
 
         [Display(Name = "Edad")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        //[RegularExpression("^[1-9]*$", ErrorMessage = "* Solo se permiten números *")]
-        //[StringLength(9)]
+
         public int _Edad { get; set; }
 
 
@@ -41,11 +40,7 @@ namespace ClientesEntityFrmwk.Models
 
 
         [Display(Name = "Fecha de modificación")]
-        public string _FechaModificacion { get; set; }
-
-
-
-        
+        public string _FechaModificacion { get; set; }       
 
 
         public Cliente()
@@ -75,7 +70,7 @@ namespace ClientesEntityFrmwk.Models
         public Boolean InsertClientes()
         {
             Boolean resp = false;
-            int idCliente = 0;
+            int idClie = 0;
                 try
                 {
                 SqlConnection Cn = new SqlConnection(Cnstr);
@@ -86,9 +81,8 @@ namespace ClientesEntityFrmwk.Models
                 cmd.Parameters.AddWithValue("@PrimerNombre", _PrimerNombre);
                 cmd.Parameters.AddWithValue("@PrimerApellido", _PrimeroApellido);
                 cmd.Parameters.AddWithValue("@Edad", _Edad);
-
                 Cn.Open();
-                idCliente = int.Parse(cmd.ExecuteScalar().ToString().Trim());
+                idClie = int.Parse(cmd.ExecuteScalar().ToString().Trim());
                 Cn.Close();
                 resp = true;
                 }
@@ -104,21 +98,21 @@ namespace ClientesEntityFrmwk.Models
         public Boolean ActualizarClientes()
         {
             Boolean resp = false;            
-                int idCliente = 0;
+                int idClie = 0;
                 try
                 {
-                    SqlConnection Cn = new SqlConnection(Cnstr);
-                    string sql = "ActualizarClientes";
-                    SqlCommand cmd = new SqlCommand(sql, Cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IdCliente", _IdCliente);
-                    cmd.Parameters.AddWithValue("@Identificacion", _Identificacion);
-                    cmd.Parameters.AddWithValue("@PrimerNombre", _PrimerNombre);
-                    cmd.Parameters.AddWithValue("@PrimerApellido", _PrimeroApellido);
-                    cmd.Parameters.AddWithValue("@Edad", _Edad);
-                    Cn.Open();
-                    idCliente = int.Parse(cmd.ExecuteScalar().ToString().Trim());
-                    Cn.Close();
+                SqlConnection Cn = new SqlConnection(Cnstr);
+                string sql = "ActualizarClientes";
+                SqlCommand cmd = new SqlCommand(sql, Cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdCliente", _IdCliente);
+                cmd.Parameters.AddWithValue("@Identificacion", _Identificacion);
+                cmd.Parameters.AddWithValue("@PrimerNombre", _PrimerNombre);
+                cmd.Parameters.AddWithValue("@PrimerApellido", _PrimeroApellido);
+                cmd.Parameters.AddWithValue("@Edad", _Edad);
+                Cn.Open();
+                idClie = int.Parse(cmd.ExecuteScalar().ToString().Trim());
+                Cn.Close();
                 resp = true;
                 }
                 catch (Exception ex)

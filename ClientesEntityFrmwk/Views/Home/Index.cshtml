@@ -3,58 +3,72 @@
 @{
     ViewBag.Title = "Clientes";
 }
+<center>
+    <h2>Lista Clientes</h2>
+</center>
+    <p>
+        <br />
+        <b>
+            @Html.ActionLink("Crear cliente", "CrearCliente")
+        </b>
+    </p>
 
-<h2>Lista Empleados</h2>
-
-<p>
-    <br />
-    @Html.ActionLink("Crear cliente", "CrearCliente")
-</p>
-
-<table class="table">
-    <tr>
-        <th>ID Cliente</th>
-        <th>Identificación</th>
-        <th>Primer Nombre</th>
-        <th>Primer Apellido</th>
-        <th>Edad</th>
-        <th>Fecha de creación</th>
-        <th>Fecha modificación</th>
-
-    </tr>
-
-    @foreach (var item in Model.clie)
-    {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(m => item._IdCliente)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item._Identificacion)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item._PrimerNombre)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item._PrimeroApellido)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item._Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item._FechaCreacion)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item._FechaModificacion)
-            </td>
+            <th>ID Cliente</th>
+            <th>Identificación</th>
+            <th>Primer Nombre</th>
+            <th>Primer Apellido</th>
+            <th>Edad</th>
+            <th>Fecha de creación</th>
+            <th>Fecha modificación</th>
 
-            <td>
-                @*"Controlador"*@
-                @Html.ActionLink("Seleccionar", "DetalleCliente", new { IdCliente = item._IdCliente })
-                @Html.ActionLink("Modificar", "ModificarClientes", new { IdCliente = item._IdCliente })
-                @Html.ActionLink("Eliminar", "EliminarCliente", new { IdCliente = item._IdCliente })
-            </td>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model.clie)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item._IdCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item._Identificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item._PrimerNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item._PrimeroApellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item._Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item._FechaCreacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item._FechaModificacion)
+                </td>
+                <td>
+                    @*"Controlador"*@
+                    <b>
+                    @Html.ActionLink("Seleccionar", "DetalleCliente", new { IdCliente = item._IdCliente })
+                     </b>
+                </td>
+                <td>
+                    <b>
+                    @Html.ActionLink("Modificar", "ModificarClientes", new { IdCliente = item._IdCliente })
+                     </b>
+                </td>
+                <td>
+                    <b>
+                    @Html.ActionLink("Eliminar", "EliminarCliente", new { IdCliente = item._IdCliente })
+                    </b>
+                </td>
+            </tr>            
+
+                
+            
+        }
+
+    </table>

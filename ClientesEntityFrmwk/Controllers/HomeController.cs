@@ -9,11 +9,7 @@ namespace ClientesEntityFrmwk.Controllers
 {
     public class HomeController : Controller
     {
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
+       
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -37,9 +33,7 @@ namespace ClientesEntityFrmwk.Controllers
         {
             ListaClientes cliente = new ListaClientes();            
             cliente.BuscarClientes(-1);
-            return View(cliente);
-
-            
+            return View(cliente);            
         }
 
         //Detalle Clientes con ActionResult
@@ -49,8 +43,6 @@ namespace ClientesEntityFrmwk.Controllers
             ListaClientes cliente = new ListaClientes();
             cliente.BuscarClientes(IdCliente);
             return View(cliente);
-
-
         }
 
 
@@ -70,8 +62,6 @@ namespace ClientesEntityFrmwk.Controllers
         [HttpPost]
         public ActionResult CrearCliente(Cliente modelo)
         {
-            //if (ModelState.IsValid)
-            //{
                 Boolean insert = modelo.InsertClientes();
                 if (insert)
                 {
@@ -81,12 +71,6 @@ namespace ClientesEntityFrmwk.Controllers
                 {
                     return View(modelo);
                 }
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Index");
-            //}
-
 
         }
 
@@ -114,8 +98,6 @@ namespace ClientesEntityFrmwk.Controllers
         [HttpPost]
         public ActionResult ModificarClientes(Cliente model)
         {
-                //if (ModelState.IsValid)
-                //{
                     Boolean modificar = model.ActualizarClientes();
                     if (modificar)
                     {
@@ -125,13 +107,6 @@ namespace ClientesEntityFrmwk.Controllers
                     {
                         return View(model);
                     }
-
-                //}
-                //else
-                //{
-                //    return View(model);
-                //}
-
 
         }
 
@@ -160,9 +135,6 @@ namespace ClientesEntityFrmwk.Controllers
         [HttpPost]
         public ActionResult EliminarCliente(Cliente model)
         {
-                //if (ModelState.IsValid)
-                //{
-
                     Boolean eliminar = model.EliminarClientes();
                     if (eliminar)
                     {
@@ -172,13 +144,6 @@ namespace ClientesEntityFrmwk.Controllers
                     {
                         return View(model);
                     }
-
-                //}
-                //else
-                //{
-                //    return View(model);
-                //}
-
         }
 
         #endregion

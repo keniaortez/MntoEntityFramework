@@ -79,8 +79,8 @@ C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\bi
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\bin\es\System.Web.WebPages.resources.dll
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.csprojAssemblyReference.cache
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.csproj.CoreCompileInputs.cache
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.csproj.CopyComplete
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.dll
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.pdb
+C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.csprojAssemblyReference.cache

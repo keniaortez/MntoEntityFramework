@@ -166,6 +166,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\DetalleCliente.cshtml" />
     <Content Include="Views\Home\ModificarClientes.cshtml" />
+    <Content Include="Views\Home\CrearCliente.cshtml" />
+    <Content Include="Views\Home\EliminarCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

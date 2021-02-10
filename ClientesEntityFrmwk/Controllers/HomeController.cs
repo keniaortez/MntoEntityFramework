@@ -69,41 +69,37 @@ namespace ClientesEntityFrmwk.Controllers
         //Con los datos
         [HttpPost]
         public ActionResult CrearCliente(Cliente modelo)
-        {           
-                if (ModelState.IsValid)
+        {
+            //if (ModelState.IsValid)
+            //{
+                Boolean insert = modelo.InsertClientes();
+                if (insert)
                 {
-
-                    Boolean insert = modelo.InsertClientes();
-                    if (insert)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        return View(modelo);
-                    }
-
+                    return RedirectToAction("Index");
                 }
                 else
                 {
                     return View(modelo);
                 }
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index");
+            //}
 
 
-
-           
         }
 
 
         //Modificar cliente - mostrar los datos
         [HttpGet]
-        public ActionResult ModificarCliente(int idClie)
+        public ActionResult ModificarClientes(int IdCliente)
         {
                 if (ModelState.IsValid)
                 {
                     Cliente clie = new Cliente();                   
                     clie._FechaModificacion = DateTime.Now.ToShortDateString(); ;
-                    clie.GetCliente(idClie);
+                    clie.GetCliente(IdCliente);
                     return View(clie);
 
                 }
@@ -116,10 +112,10 @@ namespace ClientesEntityFrmwk.Controllers
 
         //Modificar cliente - para llamar la funcion de modificación
         [HttpPost]
-        public ActionResult ModificarCliente(Cliente model)
+        public ActionResult ModificarClientes(Cliente model)
         {
-                if (ModelState.IsValid)
-                {
+                //if (ModelState.IsValid)
+                //{
                     Boolean modificar = model.ActualizarClientes();
                     if (modificar)
                     {
@@ -130,31 +126,31 @@ namespace ClientesEntityFrmwk.Controllers
                         return View(model);
                     }
 
-                }
-                else
-                {
-                    return View(model);
-                }
+                //}
+                //else
+                //{
+                //    return View(model);
+                //}
 
 
         }
 
         //Eliminar cliente
         [HttpGet]
-        public ActionResult EliminarCliente(int idclie)
+        public ActionResult EliminarCliente(int IdCliente)
         {
 
             if (ModelState.IsValid)
             {
                 Cliente clie = new Cliente();
-                clie.GetCliente(idclie);
+                clie.GetCliente(IdCliente);
                 return View(clie);
 
             }
             else
             {
                 Cliente clie = new Cliente();
-                clie.GetCliente(idclie);
+                clie.GetCliente(IdCliente);
                 return View(clie);
             }
             
@@ -164,8 +160,8 @@ namespace ClientesEntityFrmwk.Controllers
         [HttpPost]
         public ActionResult EliminarCliente(Cliente model)
         {
-                if (ModelState.IsValid)
-                {
+                //if (ModelState.IsValid)
+                //{
 
                     Boolean eliminar = model.EliminarClientes();
                     if (eliminar)
@@ -177,11 +173,11 @@ namespace ClientesEntityFrmwk.Controllers
                         return View(model);
                     }
 
-                }
-                else
-                {
-                    return View(model);
-                }
+                //}
+                //else
+                //{
+                //    return View(model);
+                //}
 
         }
 

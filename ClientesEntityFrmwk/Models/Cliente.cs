@@ -31,8 +31,8 @@ namespace ClientesEntityFrmwk.Models
 
         [Display(Name = "Edad")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        [RegularExpression("^[1-9]*$", ErrorMessage = "* Solo se permiten números *")]
-        [StringLength(9)]
+        //[RegularExpression("^[1-9]*$", ErrorMessage = "* Solo se permiten números *")]
+        //[StringLength(9)]
         public int _Edad { get; set; }
 
 
@@ -45,21 +45,29 @@ namespace ClientesEntityFrmwk.Models
 
 
 
-        public string _ClienteEliminar { get; set; }
+        
 
 
         public Cliente()
         {
         }
-        public Cliente(int idCliente, string Identificacion, string PrimerNombre, string PrimerApellido,  int Edad, DateTime FechaCreacion, string FechaModificacion)
+        public Cliente(int idCliente, string Identificacion, string PrimerNombre, string PrimerApellido,  string Edad, DateTime FechaCreacion, string FechaModificacion)
         {
-            _IdCliente  = idCliente;
-            _Identificacion = Identificacion.ToString();
-            _PrimerNombre = PrimerNombre.ToString();
-            _PrimeroApellido = PrimerApellido.ToString();
-            _Edad = int.Parse(Edad.ToString());
-            _FechaCreacion = FechaCreacion;
-            _FechaModificacion = FechaModificacion;           
+            try
+            {
+                _IdCliente = idCliente;
+                _Identificacion = Identificacion.ToString();
+                _PrimerNombre = PrimerNombre.ToString();
+                _PrimeroApellido = PrimerApellido.ToString();
+                _Edad = int.Parse(Edad.ToString().Trim());
+                _FechaCreacion = FechaCreacion;
+                _FechaModificacion = FechaModificacion;
+            }
+            catch (Exception ex)             
+            { 
+            
+            }
+                     
         }
 
 
@@ -70,27 +78,26 @@ namespace ClientesEntityFrmwk.Models
             int idCliente = 0;
                 try
                 {
-                    SqlConnection Cn = new SqlConnection(Cnstr);
-                    string sql = "InsertarClientes";
-                    SqlCommand cmd = new SqlCommand(sql, Cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Identificacion", _Identificacion);
-                    cmd.Parameters.AddWithValue("@PrimerNombre", _PrimerNombre);
-                    cmd.Parameters.AddWithValue("@PrimerApellido", _PrimeroApellido);
-                    cmd.Parameters.AddWithValue("@Edad", _Edad);
+                SqlConnection Cn = new SqlConnection(Cnstr);
+                string sql = "InsertarClientes";
+                SqlCommand cmd = new SqlCommand(sql, Cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Identificacion", _Identificacion);
+                cmd.Parameters.AddWithValue("@PrimerNombre", _PrimerNombre);
+                cmd.Parameters.AddWithValue("@PrimerApellido", _PrimeroApellido);
+                cmd.Parameters.AddWithValue("@Edad", _Edad);
 
-                    Cn.Open();
-                    idCliente = int.Parse(cmd.ExecuteScalar().ToString().Trim());
-                    Cn.Close();
+                Cn.Open();
+                idCliente = int.Parse(cmd.ExecuteScalar().ToString().Trim());
+                Cn.Close();
+                resp = true;
                 }
                 catch (Exception ex)
                 {
                     resp = false;
                 }
 
-                return resp;
-
-            
+                return resp;           
         }
 
         //Modificar Clientes
@@ -104,7 +111,7 @@ namespace ClientesEntityFrmwk.Models
                     string sql = "ActualizarClientes";
                     SqlCommand cmd = new SqlCommand(sql, Cn);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IdCliente", idCliente);
+                    cmd.Parameters.AddWithValue("@IdCliente", _IdCliente);
                     cmd.Parameters.AddWithValue("@Identificacion", _Identificacion);
                     cmd.Parameters.AddWithValue("@PrimerNombre", _PrimerNombre);
                     cmd.Parameters.AddWithValue("@PrimerApellido", _PrimeroApellido);
@@ -112,6 +119,7 @@ namespace ClientesEntityFrmwk.Models
                     Cn.Open();
                     idCliente = int.Parse(cmd.ExecuteScalar().ToString().Trim());
                     Cn.Close();
+                resp = true;
                 }
                 catch (Exception ex)
                 {

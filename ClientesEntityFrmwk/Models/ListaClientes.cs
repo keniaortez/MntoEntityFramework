@@ -39,7 +39,7 @@ namespace ClientesEntityFrmwk.Models
                         string _Identificacion = dr["Identificacion"].ToString().Trim();
                         string _PrimerNombre = dr["PrimerNombre"].ToString().Trim();
                         string _PrimeroApellido = dr["PrimerApellido"].ToString().Trim();
-                        int _Edad = int.Parse(dr["Edad"].ToString().Trim());
+                        string _Edad = dr["Edad"].ToString().Trim();
                         DateTime _FechaCreacion = DateTime.Parse(dr["FechaCreacion"].ToString().Trim());
                         if (dr["FechaModificacion"].ToString().Trim() != "")
                         {

@@ -1,0 +1,51 @@
+﻿@model ClientesEntityFrmwk.Models.ListaClientes
+<center>
+    @{
+        ViewBag.Title = "Detalle de cliente";
+    }
+
+    <h2>Detalle Cliente</h2>
+
+    <table class="table">
+        @foreach (var item in Model.clie )
+        {
+            <tr>
+                <td>ID Empleado:</td>
+                <td>@Html.DisplayFor(m => item._IdCliente)</td>
+            </tr>
+            <tr>
+                <td>Primer Nombre:</td>
+                <td>@Html.DisplayFor(m => item._Identificacion)</td>
+            </tr>
+            <tr>
+                <td>Segundo Nombre:</td>
+                <td>@Html.DisplayFor(m => item._PrimerNombre)</td>
+            </tr>
+            <tr>
+                <td>Primer Apellido:</td>
+                <td>@Html.DisplayFor(m => item._PrimeroApellido)</td>
+            </tr>
+            <tr>
+                <td>Segundo Apellido:</td>
+                <td>@Html.DisplayFor(m => item._Edad)</td>
+            </tr>
+            <tr>
+                <td>Fecha de creación</td>
+                <td>@Html.DisplayFor(m => item._FechaCreacion)</td>
+            </tr>
+            <tr>
+                <td>Fecha modificación</td>
+                <td>@Html.DisplayFor(m => item._FechaModificacion)</td>
+            </tr>
+            <tr>
+
+                <td>
+                    @*"Controlador"*@
+                    @Html.ActionLink("Modificar", "ModificarCliente", new { IdCliente = item._IdCliente })
+                    @Html.ActionLink("Eliminar", "EliminarCliente", new { IdCliente = item._IdCliente })
+                </td>
+            </tr>
+        }
+
+    </table>
+</center>

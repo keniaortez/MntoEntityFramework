@@ -1,0 +1,58 @@
+﻿@model ClientesEntityFrmwk.Models.ListaClientes 
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Lista Empleados</h2>
+
+<p>
+    <br />
+    @Html.ActionLink("Crear cliente", "CrearCliente")
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID Empleado</th>
+        <th>Identificación</th>
+        <th>Primer Nombre</th>
+        <th>Primer Apellido</th>
+        <th>Edad</th>
+        <th>Fecha de creación</th>
+        <th>Fecha modificación</th>
+
+    </tr>
+
+    @foreach (var item in Model.clie)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item._IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item._Identificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item._PrimerNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item._PrimeroApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item._Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item._FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item._FechaModificacion)
+            </td>
+
+            <td>
+                @*"Controlador"*@
+                @Html.ActionLink("Seleccionar", "DetalleCliente", new { IdCliente = item._IdCliente })             
+            </td>
+        </tr>
+    }
+
+</table>

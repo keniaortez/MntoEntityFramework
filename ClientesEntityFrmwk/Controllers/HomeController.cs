@@ -27,7 +27,7 @@ namespace ClientesEntityFrmwk.Controllers
         #region Cliente
 
 
-        //Detalle Empleados sin datos
+        //Detalle cliente sin datos
         [HttpGet]
         public ActionResult Index()
         {

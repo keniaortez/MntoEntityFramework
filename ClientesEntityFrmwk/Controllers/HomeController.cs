@@ -117,24 +117,24 @@ namespace ClientesEntityFrmwk.Controllers
 
             if (ModelState.IsValid)
             {
-                Cliente clie = new Cliente();
+                Session["IdCliente"] = IdCliente;
+                Cliente clie = new Cliente();                
                 clie.GetCliente(IdCliente);
                 return View(clie);
 
             }
             else
             {
-                Cliente clie = new Cliente();
-                clie.GetCliente(IdCliente);
-                return View(clie);
+                return RedirectToAction("Index");
             }
-            
+
         }
 
         //Para llamar la funcion de eliminar
         [HttpPost]
         public ActionResult EliminarCliente(Cliente model)
         {
+            model._IdCliente = int.Parse(Session["IdCliente"].ToString().Trim());
                     Boolean eliminar = model.EliminarClientes();
                     if (eliminar)
                     {

@@ -83,4 +83,3 @@ C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\ob
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.csproj.CopyComplete
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.dll
 C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.pdb
-C:\Users\Kenia Ortez\Documents\GitHub\MntoEntityFramework\ClientesEntityFrmwk\obj\Debug\ClientesEntityFrmwk.csprojAssemblyReference.cache
